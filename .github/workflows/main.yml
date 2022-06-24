@@ -6,15 +6,10 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
     paths-ignore:
       - '**.md'
       - '**.rst'
-  pull_request:
-    branches: [ "main" ]
-    #paths-ignore:
-    #  - '**.md'
-    #  - '**.rst'
+
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,11 +30,9 @@ jobs:
         id: changed-files-specific
         uses: tj-actions/changed-files@v23.1
         with:
-          files: |
+          files_ignore: |
             *.md
             *.rst
-          files_ignore: |
-            *.yml
 
       - name: Run step if any of the listed files above change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
