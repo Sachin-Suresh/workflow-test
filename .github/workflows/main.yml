@@ -30,15 +30,8 @@ jobs:
         uses: tj-actions/changed-files@v23.1
         with:
           files: |
-            my-file.txt
-            test.txt
-            new.txt
-            test_directory
-            *.sh
-            *.png
-            !*.md
+            *.md
             *.rst
-            *.jpeg
           files_ignore: |
             *.yml
 
