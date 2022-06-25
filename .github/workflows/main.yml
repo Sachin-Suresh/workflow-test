@@ -30,9 +30,15 @@ jobs:
         id: changed-files-specific
         uses: tj-actions/changed-files@v23.1
         with:
-          files_ignore: |
-            *.md
-            *.rst
+          files: |
+            **.md
+            **.rst
+
+      - name: List all changed files
+        run: |
+          for file in ${{ steps.changed-files-specific.outputs.all_changed_files }}; do
+            echo "$file was changed"
+          done
 
       - name: Run step if any of the listed files above change
         if: steps.changed-files-specific.outputs.any_changed == 'true'
