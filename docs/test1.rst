@@ -6,4 +6,4 @@ This is test rst file
 
 Change in RST file
 
-updated condition
+updated conditions
